@@ -90,14 +90,32 @@ public class GuestDaoImpl implements GuestDao {
 
 	@Override
 	public int updateOne(GuestVo bean) throws SQLException {
-		// TODO Auto-generated method stub
-		return 0;
+		String sql="UPDATE GUEST_DAY03 SET NAME=?,PAY=? WHERE SABUN=?";
+		try{
+			conn=dataSource.getConnection();
+			pstmt=conn.prepareStatement(sql);
+			pstmt.setString(1, bean.getName());
+			pstmt.setInt(2, bean.getPay());
+			pstmt.setInt(3, bean.getSabun());
+			return pstmt.executeUpdate();
+		}finally {
+			if(pstmt!=null)pstmt.close();
+			if(conn!=null)conn.close();
+		}
 	}
 
 	@Override
 	public int deleteOne(int sabun) throws SQLException {
-		// TODO Auto-generated method stub
-		return 0;
+		String sql="DELETE FROM GUEST_DAY03 WHERE SABUN=?";
+		try{
+			conn=dataSource.getConnection();
+			pstmt=conn.prepareStatement(sql);
+			pstmt.setInt(1, sabun);
+			return pstmt.executeUpdate();
+		}finally {
+			if(pstmt!=null)pstmt.close();
+			if(conn!=null)conn.close();
+		}
 	}
 
 	@Override
