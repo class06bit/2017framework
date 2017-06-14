@@ -1,8 +1,21 @@
 package com.hb.day06am.model;
 
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
+import org.hibernate.validator.constraints.Email;
+
 public class GuestVo {
-	private int sabun,pay;
-	private String name,nalja;
+	@NotNull
+	@Min(1000)
+	private int sabun;
+	@Size(min = 5)
+	@Email
+	private String name;
+	private String nalja;
+	@NotNull
+	private int pay;
 	
 	public GuestVo() {
 		// TODO Auto-generated constructor stub
