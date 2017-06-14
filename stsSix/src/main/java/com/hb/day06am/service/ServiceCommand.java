@@ -3,8 +3,15 @@ package com.hb.day06am.service;
 import java.sql.SQLException;
 
 import org.apache.ibatis.session.SqlSession;
+import org.springframework.ui.Model;
+
+import com.hb.day06am.model.GuestVo;
 
 public interface ServiceCommand {
 
-	//void sCmd(SqlSession sqlSession) throws SQLException;
+	void listService(SqlSession sqlSession,Model model) throws SQLException;
+	void detailService(SqlSession sqlSession,Model model,int idx) throws SQLException;
+	void addService(SqlSession sqlSession,GuestVo bean) throws SQLException;
+	void editService(SqlSession sqlSession,GuestVo bean) throws SQLException;
+	void deleteService(SqlSession sqlSession, int idx) throws SQLException;
 }
