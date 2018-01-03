@@ -7,7 +7,7 @@
 
 	<bean id="dao" class="com.hb.model.DaoImpl"></bean>
 	
-	<bean id="methodBeforeAdvice" class="com.hb.ex.BeforeAop"></bean>
+	<bean id="methodBeforeAdvice" class="com.hb.ex.AfterAop"></bean>
 	
 	<bean id="pointcut" class="org.springframework.aop.support.JdkRegexpMethodPointcut">
 		<property name="pattern" value=".*print.*"></property>
